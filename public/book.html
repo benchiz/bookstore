@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Операции для таблицы Book</title>
+</head>
+
+<body>
+    <header>
+        <h1>API Book</h1>
+    </header>
+
+    <main>
+        <a href="index.html">На главную</a>
+
+        <h2>Операция Create</h2>
+        <form id="bookCreateForm" method="post">
+            <fieldset>
+                <legend>Добавление книги</legend>
+
+                <label for="title">Название книги:</label>
+                <input type="text" id="title" name="title" required>
+                <br><br>
+
+                <label for="binding">Тип обложки:</label>
+                <input type="text" id="binding" name="binding">
+                <br><br>
+
+                <label for="publication_date">Дата публикации:</label>
+                <input type="number" id="publication_date" name="publication_date" required>
+                <br><br>
+
+                <label for="book_identifier">Книжный номер:</label>
+                <input type="text" id="book_identifier" name="book_identifier">
+                <br><br>
+
+                <label for="publisher">Издательство:</label>
+                <input type="text" id="publisher" name="publisher">
+                <br><br>
+
+                <label for="category">Категория:</label>
+                <input type="text" id="category" name="category" required>
+                <br><br>
+
+                <label for="page_count">Количество страниц:</label>
+                <input type="number" id="page_count" name="page_count" required>
+                <br><br>
+
+                <label for="price">Цена книги:</label>
+                <input type="number" id="price" name="price" required>
+                <br><br>
+
+                <label for="author">Автор книги:</label>
+                <input type="text" id="author" name="author" required>
+                <br><br>
+
+                <label for="genre">Жанр:</label>
+                <input type="text" id="genre" name="genre" required>
+                <br><br>
+
+                <label for="bookstore_id">ID книжного магазина:</label>
+                <input type="text" id="bookstore_id" name="bookstore" required>
+                <br><br>
+
+                <input type="submit" id="book_submit" value="Создать">
+            </fieldset>
+        </form>
+
+        <h2>Операция Read</h2>
+        <form action="../src/book/read_book.php" method="get" target="_blank">
+            <fieldset>
+                <legend>Чтение значений из таблицы Book</legend>
+                <button type="submit">Перечень книг</button>
+            </fieldset>
+        </form>
+
+        <form action="../src/book/read_one_book.php" method="get" target="_blank">
+            <fieldset>
+                <legend>Чтение одной позиции из таблицы Book</legend>
+                <label for="book_id">Идентификатор книги:</label>
+                <input type="number" id="book_id" name="id" required>
+                <br>
+                <button type="submit">Просмотр книги</button>
+            </fieldset>
+        </form>
+
+        <h2>Операция Update</h2>
+        <form id="updateBookForm" method="post">
+            <fieldset>
+                <legend>Обновление одной позиции в таблице Book</legend>
+
+                <label for="id_upd">ID книги:</label>
+                <input type="number" id="id_upd" name="id-upd" required>
+                <br><br>
+
+                <label for="title_upd">Название книги:</label>
+                <input type="text" id="title_upd" name="title-upd" required>
+                <br><br>
+
+                <label for="binding_upd">Тип обложки:</label>
+                <input type="text" id="binding_upd" name="binding-upd">
+                <br><br>
+
+                <label for="publication_date_upd">Дата публикации:</label>
+                <input type="number" id="publication_date_upd" name="publication_date-upd" required>
+                <br><br>
+
+                <label for="book_identifier_upd">Книжный номер:</label>
+                <input type="text" id="book_identifier_upd" name="book_identifier-upd">
+                <br><br>
+
+                <label for="publisher_upd">Издательство:</label>
+                <input type="text" id="publisher_upd" name="publisher-upd">
+                <br><br>
+
+                <label for="category_upd">Категория:</label>
+                <input type="text" id="category_upd" name="category-upd" required>
+                <br><br>
+
+                <label for="page_count_upd">Количество страниц:</label>
+                <input type="number" id="page_count_upd" name="page_count-upd" required>
+                <br><br>
+
+                <label for="price_upd">Цена книги:</label>
+                <input type="number" id="price_upd" name="price-upd" required>
+                <br><br>
+
+                <label for="author_upd">Автор книги:</label>
+                <input type="text" id="author_upd" name="author-upd" required>
+                <br><br>
+
+                <label for="genre_upd">Жанр:</label>
+                <input type="text" id="genre_upd" name="genre-upd" required>
+                <br><br>
+
+                <label for="bookstore_id_upd">ID книжного магазина:</label>
+                <input type="number" id="bookstore_id_upd" name="bookstore-upd" required>
+                <br><br>
+
+                <input type="submit" id="book_submit-upd" value="Обновить">
+            </fieldset>
+        </form>
+
+        <h2>Операция Delete</h2>
+        <form id="deleteBookForm" method="post">
+            <fieldset>
+                <legend>Удаление одной позиции в таблице Book</legend>
+                <label for="id_book_delete">ID книги:</label>
+                <input type="number" id="id_book_delete" name="deleted-book_id" required>
+                <input type="submit" id="book_delete" value="Удалить">
+            </fieldset>
+        </form>
+
+        <h2>Поиск книг</h2>
+        <form id="searchBookForm" method="get" action="/src/book/search_book.php">
+            <input type="text" name="search" placeholder="Введите ключевые слова" required>
+            <button type="submit">Поиск</button>
+        </form>
+
+        <h2>Количество книг</h2>
+        <form id="searchBookForm" method="get" action="/src/book/count_book.php">
+            <button type="submit">Показать</button>
+        </form>
+
+        <script src="book.js"></script>
+    </main>
+</body>
+
+</html>
